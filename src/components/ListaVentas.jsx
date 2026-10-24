@@ -36,7 +36,7 @@ function ListaVentas() {
   };
 
   const titleStyle = {
-    color: '#00f2fe',
+    color: '#a10000',
     fontSize: '1.4rem',
     marginTop: '0',
     marginBottom: '20px',
@@ -55,7 +55,7 @@ function ListaVentas() {
 
   const thStyle = {
     backgroundColor: '#1f202c',
-    color: '#00f2fe',
+    color: '#ad0000',
     padding: '14px',
     textAlign: 'left',
     fontWeight: '600',
@@ -72,7 +72,7 @@ function ListaVentas() {
   };
 
   const editBtnStyle = {
-    background: 'linear-gradient(135deg, #00f2fe, #9b51e0)',
+    background: 'linear-gradient(135deg, #a30808, #410000)',
     color: 'white',
     border: 'none',
     padding: '6px 12px',
@@ -98,7 +98,8 @@ function ListaVentas() {
       <table style={tableStyle}>
         <thead>
           <tr>
-            <th style={thStyle}>Vendedor / Cliente</th>
+            {/* Cambiado para reflejar únicamente al Cliente final */}
+            <th style={thStyle}>Cliente</th>
             <th style={thStyle}>Artículo Musical</th>
             <th style={thStyle}>Cantidad</th>
             <th style={thStyle}>Precio</th>
@@ -110,12 +111,14 @@ function ListaVentas() {
         <tbody>
           {ventas.map(v => (
             <tr key={v.id}>
-              <td style={tdStyle}>{v.estudiante}</td>
+              {/* Muestra el nombre escrito; evalúa ambas opciones por compatibilidad con tu backend */}
+              <td style={tdStyle}>{v.estudiante || v.estudiante_id}</td>
               <td style={tdStyle}>{v.producto}</td>
               <td style={tdStyle}>{v.cantidad}</td>
-              <td style={tdStyle}>\${v.precio}</td>
-              <td style={tdStyle}>\${v.total}</td>
-              <td style={tdStyle}>{v.fecha}</td>
+              <td style={tdStyle}>${v.precio}</td>
+              <td style={tdStyle}>${v.total}</td>
+              {/* Formatea la fecha para que visualmente se vea limpia en la tabla */}
+              <td style={tdStyle}>{v.fecha ? v.fecha.split('T')[0] : ''}</td>
               <td style={tdStyle}>
                 <button onClick={() => setVentaSeleccionada(v)} style={editBtnStyle}>Editar</button>
                 <button onClick={() => eliminarVenta(v.id)} style={deleteBtnStyle}>Eliminar</button>

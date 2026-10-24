@@ -16,7 +16,7 @@ function App() {
   const headerStyle = {
     textAlign: 'center',
     fontSize: '2.8rem',
-    background: 'linear-gradient(135deg, #00f2fe, #9b51e0)',
+    background: 'linear-gradient(135deg, #aa0000, #2b0000)',
     WebkitBackgroundClip: 'text',
     WebkitTextFillColor: 'transparent',
     marginBottom: '40px',
@@ -27,7 +27,7 @@ function App() {
 
   return (
     <div style={containerStyle}>
-      <h1 style={headerStyle}>Kira Music Store</h1>
+      <h1 style={headerStyle}>Acsa Music Store</h1>
       <FormularioVenta />
       <ListaVentas />
     </div>
